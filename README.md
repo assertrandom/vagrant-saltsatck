@@ -12,5 +12,6 @@ Simple Vagrant salt stack
 
 **Booting up the vagrant boxes**
 
-vagrant up master
-vagrant up minion
+*vagrant up master*
+
+*vagrant up minion*
