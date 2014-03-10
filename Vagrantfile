@@ -13,19 +13,21 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "master" do |master|
     master.vm.box = "centos-6.5"
      master.vm.synced_folder "master", "/etc/salt"
+     master.vm.synced_folder "master_shared", "/home/vagrant/master_shared"
      master.vm.network :private_network, ip: "192.168.33.60",virtualbox__intnet: "localnetwork"
      master.vm.network :forwarded_port, guest: 8080, host: 6161
-     master.vm.provision "shell", path: "bootup.sh"
-     master.vm.provision "shell", path: "salt-master.sh"
+     #master.vm.provision "shell", path: "bootup.sh"
+     #master.vm.provision "shell", path: "salt-master.sh"
   end
 
   config.vm.define "minion" do |minion|
     minion.vm.box = "centos-6.5"
      minion.vm.synced_folder "minion", "/etc/salt"
+     minion.vm.synced_folder "minion_shared", "/home/vagrant/minion_shared"
      minion.vm.network :private_network, ip: "192.168.33.70",virtualbox__intnet: "localnetwork"
      minion.vm.network :forwarded_port, guest: 8080, host: 6262
-     minion.vm.provision "shell", path: "bootup.sh"
-     minion.vm.provision "shell", path: "salt-minion.sh"
+     #minion.vm.provision "shell", path: "bootup.sh"
+     #minion.vm.provision "shell", path: "salt-minion.sh"
   end
 
   # The url from where the 'config.vm.box' box will be fetched if it
