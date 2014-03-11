@@ -305,9 +305,9 @@ interface: 192.168.33.60
 #     - /srv/salt/prod/services
 #     - /srv/salt/prod/states
 
-#file_roots:
-base:
-  - /home/vagrant/file_root_base
+file_roots:
+ base:
+   - /home/vagrant/file_root_base
 
 # The hash_type is the hash to use when discovering the hash of a file on
 # the master server. The default is md5, but sha1, sha224, sha256, sha384
