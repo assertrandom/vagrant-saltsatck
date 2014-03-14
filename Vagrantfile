@@ -14,6 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     master.vm.box = "centos-6.5"
      master.vm.synced_folder "master", "/etc/salt"
      master.vm.synced_folder "master_shared", "/home/vagrant/master_shared"
+     master.vm.synced_folder "master_root", "/srv/salt/"
      master.vm.network :private_network, ip: "192.168.33.60",virtualbox__intnet: "localnetwork"
      master.vm.network :forwarded_port, guest: 8080, host: 6161
      master.vm.provision "shell", path: "bootup.sh"
